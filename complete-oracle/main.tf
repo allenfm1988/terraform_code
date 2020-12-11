@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-west-1"
+  region = "us-east-1a"
 }
 
 ##############################################################
@@ -24,19 +24,19 @@ data "aws_security_group" "default" {
 module "db" {
   source = "../../"
 
-  identifier = "demodb-oracle"
+  identifier = "demodb-oracle-ulacit"
 
-  engine            = "oracle-ee"
-  engine_version    = "12.1.0.2.v8"
-  instance_class    = "db.t2.large"
-  allocated_storage = 10
+  engine            = "Oracle Standard Edition One"
+  engine_version    = "11.2.0.4.v25"
+  instance_class    = "db.t3.micro"
+  allocated_storage = 20
   storage_encrypted = false
   license_model     = "bring-your-own-license"
 
   # Make sure that database name is capitalized, otherwise RDS will try to recreate RDS instance every time
-  name                                = "DEMODB"
-  username                            = "something_like_user"
-  password                            = "YourPwdShouldBeLongAndSecure!"
+  name                                = "DEMODBULA"
+  username                            = "admin"
+  password                            = "aflomu1004"
   port                                = "1521"
   iam_database_authentication_enabled = false
 
@@ -56,13 +56,13 @@ module "db" {
   subnet_ids = data.aws_subnet_ids.all.ids
 
   # DB parameter group
-  family = "oracle-ee-12.1"
+  family = "default.oracle-se1-11.2"
 
   # DB option group
-  major_engine_version = "12.1"
+  major_engine_version = "11.2"
 
   # Snapshot name upon DB deletion
-  final_snapshot_identifier = "demodb"
+  final_snapshot_identifier = "demodbula"
 
   # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
   character_set_name = "AL32UTF8"
