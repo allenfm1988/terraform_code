@@ -21,8 +21,8 @@ data "aws_security_group" "default" {
 #####
 # DB
 #####
-module "db" {
-  source = "../"
+module "db_instance" {
+  source = "../modules/db_instance/"
 
   identifier = "demodb-oracle-ulacit"
 
