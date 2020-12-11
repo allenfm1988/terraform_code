@@ -59,7 +59,7 @@ module "db" {
   family = "default.oracle-se1-11.2"
 
   # DB option group
-  major_engine_version = "11.2"
+  #major_engine_version = "11.2"
 
   # Snapshot name upon DB deletion
   final_snapshot_identifier = "demodbula"
