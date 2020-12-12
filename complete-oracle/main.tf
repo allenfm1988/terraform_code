@@ -53,20 +53,5 @@ module "db" {
   }
 
   # DB subnet group
-  subnet_ids = data.aws_subnet_ids.all.ids
 
-  # DB parameter group
-  family = "default.oracle-se1-11.2"
-
-  # DB option group
-  major_engine_version = "11.2"
-
-  # Snapshot name upon DB deletion
-  final_snapshot_identifier = "demodbula"
-
-  # See here for support character sets https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html
-  character_set_name = "AL32UTF8"
-
-  # Database Deletion Protection
-  deletion_protection = false
 }
