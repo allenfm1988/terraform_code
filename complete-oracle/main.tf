@@ -22,7 +22,7 @@ data "aws_security_group" "default" {
 # DB
 #####
 module "db" {
-  source = "../modules/db_instance/"
+  source = "/home/allen/devops_files/git_repos/terraform_code"
 
   identifier = "demodb-oracle-ulacit"
 
