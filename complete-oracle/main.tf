@@ -51,11 +51,6 @@ module "db" {
     Owner       = "user"
     Environment = "dev"
   }
-
-  
-
-}
-
 # DB subnet group
   subnet_ids = data.aws_subnet_ids.all.ids
 
@@ -73,3 +68,7 @@ module "db" {
 
   # Database Deletion Protection
   deletion_protection = false
+  
+
+}
+
